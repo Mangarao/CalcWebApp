@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+	body{
+    /* background-color: rgb(214, 126, 218); */
+      background: url("https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHVycGxlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80");
+      background-size: cover;
+   
+}
+.calculator{
+    padding: 10px;
+    margin: auto;
+    height: 390x;
+    width: 300px;
+    /* background-color: rgb(225, 205, 117); */
+    word-spacing: 200px;
+    
+}
+
+#btn{
+    background-color:white;
+   height: 60px;
+   border-radius:100px;
+   color: black;
+  
+}
+
+h1{
+   text-align: center;
+   color: white;
+   
+   
+}
+input[type=button]{
+    color: whitesmoke;
+    background-color:rgb(149, 42, 152);
+    width: 70px;
+    height: 60px;
+    outline: auto;
+    padding: 15px;
+    border-radius: 100px;
+    font-size: x-large;
+    
+    
+}
+
+.display-box{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    
+   
+}
+	</style>
+
+</head>
+
+<body>
+    <h1><i>CALCULATOR</h1>
+    <table cellspacing="10" class="calculator">
+
+        <tr>
+            <td colspan="10"><input class="display-box" type="text" id="result"></td><br>
+        </tr>
+        <tr>
+            <td><input type="button" value="(" onclick="display('(')"></td>
+            <td><input type="button" value=")" onclick="display(')')"></td>
+            <td><input type="button" value="C" id="btn" onclick="clearScreen()"></td>
+            <td><input type="button" value="%" onclick="display('%')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="display('7')"></td>
+            <td><input type="button" value="8" onclick="display('8')"></td>
+            <td><input type="button" value="9" onclick="display('9')"></td>
+            <td><input type="button" value="*" onclick="display('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="display('4')"></td>
+            <td><input type="button" value="5" onclick="display('5')"></td>
+            <td><input type="button" value="6" onclick="display('6')"></td>
+            <td><input type="button" value="-" onclick="display('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="display('1')"></td>
+            <td><input type="button" value="2" onclick="display('2')"></td>
+            <td><input type="button" value="3" onclick="display('3')"></td>
+            <td><input type="button" value="+" onclick="display('+')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="display('0')"></td>
+            <td><input type="button" value="." onclick="display('.')"></td>
+            <td><input type="button" value="/" onclick="display('/')"></td>
+            <td><input type="button" value="=" onclick="calculate()"></td>
+        </tr>
+
+    </table>
+    <script>
+    
+        function clearScreen() {
+       document.getElementById("result").value = "";
+
+        }
+        // This function display values
+          function display(value) {
+            
+
+            document.getElementById("result").value += value;
+        }
+        // This function evaluates the expression and returns result
+        function calculate() {
+            try{
+            var p = document.getElementById("result").value;
+            var q = eval(p);
+            }catch(e){
+        //   document.getElementById("result").innerHTML=" ";
+        q=" "
+          console.log("Exception" +e);
+
+          alert("Please enter valid input");
+          
+
+            }
+            document.getElementById("result").value = q;
+            }
+            
+</script>
